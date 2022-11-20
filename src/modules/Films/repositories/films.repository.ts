@@ -1,8 +1,10 @@
-import { AppError } from 'shared/errors/AppError'
+import { helperGetData } from 'helper/helperGetData'
+import { IFlim } from 'types/data'
 
 class FilmRepository {
-  async list(): Promise<[]> {
-    return []
+  async list(): Promise<IFlim[]> {
+    const data = await helperGetData()
+    return data
   }
 }
 
