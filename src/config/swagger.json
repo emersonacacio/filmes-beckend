@@ -1,0 +1,36 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API de filmes",
+    "description": "API que fornece uma lista de filmes com as informações.",
+    "version": "1.0.0"
+  },
+  "basePath": "/",
+  "paths": {
+    "/film": {
+      "get": {
+        "description": "Rota que fornece a lista de filmes",
+        "tags": ["Filmes"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "type": "integer",
+            "description": "Número da página"
+          },
+          {
+            "in": "query",
+            "name": "size",
+            "type": "integer",
+            "description": "Quantidade de item na página"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de filmes e o número de páginas"
+          }
+        }
+      }
+    }
+  }
+}
