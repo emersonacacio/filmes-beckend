@@ -3,7 +3,7 @@ import { filmRepository } from '../repositories/films.repository'
 
 interface IResults {
   films: IFlim[]
-  listLength?: number
+  pageNumber?: number
 }
 
 class ListFilmService {
@@ -12,9 +12,9 @@ class ListFilmService {
     if (page && size) {
       const startIndex = (page - 1) * size
       const endIndex = startIndex + size
-      const listLength = data.length
+      const pageNumber = Math.ceil((data.length + 1) / size)
 
-      return { films: data.slice(startIndex, endIndex), listLength }
+      return { films: data.slice(startIndex, endIndex), pageNumber }
     } else {
       return { films: data }
     }
